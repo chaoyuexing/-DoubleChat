@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@mipmap/ic_launcher"
+            android:title="我的收藏" />
+        <item
+            android:id="@+id/nav_photo"
+            android:icon="@mipmap/ic_launcher"
+            android:title="我的相册" />
+        <item
+            android:id="@+id/nav_file"
+            android:icon="@mipmap/ic_launcher"
+            android:title="我的文件" />
+        <item
+            android:id="@+id/nav_rh"
+            android:icon="@mipmap/ic_launcher"
+            android:title="我的日程" />
+
+    </group>
+
+    <item android:title="Sub items">
+        <menu>
+            <item
+                android:icon="@mipmap/ic_launcher"
+                android:title="Sub item 1" />
+            <item
+                android:icon="@mipmap/ic_launcher"
+                android:title="Sub item 2" />
+        </menu>
+    </item>
+
+</menu>
