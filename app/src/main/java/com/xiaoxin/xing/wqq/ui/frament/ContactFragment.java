@@ -1,6 +1,8 @@
 package com.xiaoxin.xing.wqq.ui.frament;
 
-import android.support.v4.app.Fragment;
+import com.xiaoxin.xing.wqq.R;
+
+import butterknife.ButterKnife;
 
 /**
  * @author xiaoxin
@@ -8,7 +10,26 @@ import android.support.v4.app.Fragment;
  * @describe ：
  * 修改内容
  */
-public class ContactFragment  extends Fragment{
+public class ContactFragment extends BaseFragment{
 
+    @Override
+    protected int getLayoutResource() {
+        return R.layout.fragment_contact;
+    }
 
+    @Override
+    public void initPresenter() {
+
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
 }

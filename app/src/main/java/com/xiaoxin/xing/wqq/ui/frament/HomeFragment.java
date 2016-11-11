@@ -1,12 +1,5 @@
 package com.xiaoxin.xing.wqq.ui.frament;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.xiaoxin.xing.wqq.R;
 
 import butterknife.ButterKnife;
@@ -17,16 +10,26 @@ import butterknife.ButterKnife;
  * @describe ：
  * 修改内容
  */
-public class HomeFragment extends Fragment{
+public class HomeFragment extends BaseFragment{
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected int getLayoutResource() {
+        return R.layout.fragment_home;
+    }
 
+    @Override
+    public void initPresenter() {
 
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        ButterKnife.bind(this, view);
+    }
 
-        return view;
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 }

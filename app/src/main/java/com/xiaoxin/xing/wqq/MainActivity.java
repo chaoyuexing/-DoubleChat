@@ -1,14 +1,12 @@
 package com.xiaoxin.xing.wqq;
 
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.SparseArray;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,6 +20,10 @@ import com.joanzapata.android.BaseAdapterHelper;
 import com.joanzapata.android.QuickAdapter;
 import com.nineoldandroids.view.ViewHelper;
 import com.xiaoxin.xing.wqq.entity.TabEntity;
+import com.xiaoxin.xing.wqq.ui.frament.ContactFragment;
+import com.xiaoxin.xing.wqq.ui.frament.HomeFragment;
+import com.xiaoxin.xing.wqq.ui.frament.MessageFrament;
+import com.xiaoxin.xing.wqq.ui.frament.ZbFragment;
 import com.xiaoxin.xing.wqq.ui.widget.CustomRelativeLayout;
 import com.xiaoxin.xing.wqq.ui.widget.DragLayout;
 import com.xiaoxin.xing.wqq.util.ItemDataUtils;
@@ -51,13 +53,10 @@ public class MainActivity extends AppCompatActivity {
             R.mipmap.tab_contact_select, R.mipmap.tab_more_select};
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
     Random mRandom = new Random();
-    // show MsgTipView
-    private Paint mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    private SparseArray<Boolean> mInitSetMap = new SparseArray<>();
-    private int mTabCount;
-    private LinearLayout mTabsContainer;
-    private int mCurrentTab;
-    private int mLastTab;
+    private HomeFragment mHomeFragment;
+    private MessageFrament mMessageFrament;
+    private ContactFragment mContactFragment;
+    private ZbFragment mZbFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
         initDragLayout();
         initView();
         initTab();
+        //initFragment1();
+        initFragment(savedInstanceState);
         tabLayout.showMsg(0, 55);
         tabLayout.setMsgMargin(0, -5, 5);
         tabLayout.showMsg(1, 100);
@@ -85,6 +86,34 @@ public class MainActivity extends AppCompatActivity {
         if (rtv_2_3 != null) {
             rtv_2_3.setBackgroundColor(Color.parseColor("#6D8FB0"));
         }
+    }
+
+    /**
+     * 初始化碎片
+     */
+    private void initFragment(Bundle savedInstanceState) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        int currentTabPosition = 0;
+        if (savedInstanceState != null) {
+
+            mHomeFragment = (HomeFragment) getSupportFragmentManager().findFragmentByTag("mHomeFragment");
+            mMessageFrament = (MessageFrament) getSupportFragmentManager().findFragmentByTag("mMessageFrament");
+            mContactFragment = (ContactFragment) getSupportFragmentManager().findFragmentByTag("mContactFragment");
+            mZbFragment = (ZbFragment) getSupportFragmentManager().findFragmentByTag("mZbFragment");
+            currentTabPosition = savedInstanceState.getInt("HOME_CURRENT_TAB_POSITION");
+        } else {
+            mHomeFragment = new HomeFragment();
+            mMessageFrament = new MessageFrament();
+            mContactFragment = new ContactFragment();
+            mZbFragment = new ZbFragment();;
+            transaction.add(R.id.fl, mHomeFragment, "mHomeFragment");
+            transaction.add(R.id.fl, mMessageFrament, "mMessageFrament");
+            transaction.add(R.id.fl, mContactFragment, "mContactFragment");
+            transaction.add(R.id.fl, mZbFragment, "mZbFragment");
+        }
+        transaction.commit();
+        SwitchTo(currentTabPosition);
+        tabLayout.setCurrentTab(currentTabPosition);
     }
 
     protected int dp2px(float dp) {
@@ -115,37 +144,59 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-
-
     /**
      * 切换
      */
     private void SwitchTo(int position) {
-
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (position) {
             //首页
             case 0:
-
+                transaction.hide(mMessageFrament);
+                transaction.hide(mContactFragment);
+                transaction.hide(mZbFragment);
+                transaction.show(mHomeFragment);
+                transaction.commitAllowingStateLoss();
                 Toast.makeText(MainActivity.this,"11",Toast.LENGTH_SHORT).show();
                 break;
             //消息
             case 1:
-
+                transaction.show(mMessageFrament);
+                transaction.hide(mContactFragment);
+                transaction.hide(mZbFragment);
+                transaction.hide(mHomeFragment);
+                transaction.commitAllowingStateLoss();
                 Toast.makeText(MainActivity.this,"22",Toast.LENGTH_SHORT).show();
                 break;
             //联系人
             case 2:
-
+                transaction.hide(mMessageFrament);
+                transaction.show(mContactFragment);
+                transaction.hide(mZbFragment);
+                transaction.hide(mHomeFragment);
+                transaction.commitAllowingStateLoss();
                 Toast.makeText(MainActivity.this,"33",Toast.LENGTH_SHORT).show();
                 break;
             //更多
             case 3:
-
+                transaction.hide(mMessageFrament);
+                transaction.hide(mContactFragment);
+                transaction.show(mZbFragment);
+                transaction.hide(mHomeFragment);
+                transaction.commitAllowingStateLoss();
                 Toast.makeText(MainActivity.this,"44",Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        if (tabLayout != null) {
+            outState.putInt("HOME_CURRENT_TAB_POSITION", tabLayout.getCurrentTab());
         }
     }
 
