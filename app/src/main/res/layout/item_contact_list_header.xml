@@ -13,7 +13,7 @@
         android:background="@drawable/btn_list_item_bg"
         android:clickable="true">
 
-        <com.xiaoxin.xing.wqq.ui.widget.SelectableRoundedImageView
+        <com.xiaoxin.xing.wqq.Widget.SelectableRoundedImageView
             android:id="@+id/iv_avatar"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -53,7 +53,7 @@
         android:background="@drawable/btn_list_item_bg"
         android:clickable="true">
 
-        <com.xiaoxin.xing.wqq.ui.widget.SelectableRoundedImageView
+        <com.xiaoxin.xing.wqq.Widget.SelectableRoundedImageView
             android:id="@+id/iv_avatar2"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -93,7 +93,7 @@
         android:background="@drawable/btn_list_item_bg"
         android:clickable="true">
 
-        <com.xiaoxin.xing.wqq.ui.widget.SelectableRoundedImageView
+        <com.xiaoxin.xing.wqq.Widget.SelectableRoundedImageView
             android:id="@+id/iv_avatar4"
             android:layout_width="36dp"
             android:layout_height="36dp"

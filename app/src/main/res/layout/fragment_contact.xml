@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
     </ListView>
 
-    <com.xiaoxin.xing.wqq.ui.widget.QuickIndexBar
+    <com.xiaoxin.xing.wqq.Widget.QuickIndexBar
         android:id="@+id/quickIndexBar"
         android:layout_width="30dp"
         android:layout_height="match_parent"

@@ -1,4 +1,4 @@
-package com.xiaoxin.xing.wqq.ui.frament;
+package com.xiaoxin.xing.wqq.MVP.home.Fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,8 +13,9 @@ import com.nineoldandroids.view.ViewHelper;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.xiaoxin.xing.wqq.R;
 import com.xiaoxin.xing.wqq.adapter.MyAdapter;
+import com.xiaoxin.xing.wqq.app.BaseFragment;
 import com.xiaoxin.xing.wqq.entity.Friend;
-import com.xiaoxin.xing.wqq.ui.widget.QuickIndexBar;
+import com.xiaoxin.xing.wqq.Widget.QuickIndexBar;
 
 import java.util.ArrayList;
 import java.util.Collections;

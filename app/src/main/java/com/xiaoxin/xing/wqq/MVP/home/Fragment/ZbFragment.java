@@ -1,4 +1,4 @@
-package com.xiaoxin.xing.wqq.ui.frament;
+package com.xiaoxin.xing.wqq.MVP.home.Fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +9,8 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.xiaoxin.xing.wqq.R;
 import com.xiaoxin.xing.wqq.adapter.FeedAdapter;
-import com.xiaoxin.xing.wqq.ui.widget.CircleImageView;
+import com.xiaoxin.xing.wqq.app.BaseFragment;
+import com.xiaoxin.xing.wqq.Widget.CircleImageView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

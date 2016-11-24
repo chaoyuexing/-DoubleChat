@@ -1,6 +1,7 @@
-package com.xiaoxin.xing.wqq.ui.frament;
+package com.xiaoxin.xing.wqq.MVP.home.Fragment;
 
 import com.xiaoxin.xing.wqq.R;
+import com.xiaoxin.xing.wqq.app.BaseFragment;
 
 /**
  * @author xiaoxin

@@ -1,4 +1,4 @@
-package com.xiaoxin.xing.wqq.ui.widget;
+package com.xiaoxin.xing.wqq.Widget;
 //添加测试编译注释
 
 import android.content.Context;
@@ -39,7 +39,7 @@ public class DragLayout extends FrameLayout {
     //左侧布局
     private RelativeLayout vgLeft;
     //右侧(主界面布局)
-    private com.xiaoxin.xing.wqq.ui.widget.CustomRelativeLayout vgMain;
+    private CustomRelativeLayout vgMain;
     //页面状态 默认为关闭
     private Status status = Status.CLOSE;
     /** 当前的状态*/
@@ -202,7 +202,7 @@ public class DragLayout extends FrameLayout {
         //左侧界面
         vgLeft = (RelativeLayout) getChildAt(0);
         //右侧(主)界面
-        vgMain = (com.xiaoxin.xing.wqq.ui.widget.CustomRelativeLayout) getChildAt(IS_SHOW_SHADOW ? 2 : 1);
+        vgMain = (CustomRelativeLayout) getChildAt(IS_SHOW_SHADOW ? 2 : 1);
         vgMain.setDragLayout(this);
         vgLeft.setClickable(true);
         vgMain.setClickable(true);

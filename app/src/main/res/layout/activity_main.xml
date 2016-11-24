@@ -1,26 +1,24 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tl="http://schemas.android.com/apk/res-auto"
-    tools:context="com.xingxiaoxin.myapplication.MainActivity">
+    xmlns:tl="http://schemas.android.com/apk/res-auto">
 
-<com.xiaoxin.xing.wqq.ui.widget.DragLayout
-       android:id="@+id/dl"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:background="@android:color/transparent">
+    <com.xiaoxin.xing.wqq.Widget.DragLayout
+           android:id="@+id/dl"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:background="@android:color/transparent">
     <!--下层 左边的布局-->
-    <include layout="@layout/left_view_layout"/>
-    <!--上层 右边的主布局-->
-    <com.xiaoxin.xing.wqq.ui.widget.CustomRelativeLayout
-        android:id="@+id/cll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF">
+        <include layout="@layout/left_view_layout"/>
+        <!--上层 右边的主布局-->
+        <com.xiaoxin.xing.wqq.Widget.CustomRelativeLayout
+            android:id="@+id/cll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF">
 
-        <include layout="@layout/common_top_bar_layout"/>
+            <include layout="@layout/common_top_bar_layout"/>
 
             <FrameLayout
                 android:id="@+id/fl"
@@ -29,9 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="#000">
-
-            </FrameLayout>
+                android:background="#000"/>
 
             <com.flyco.tablayout.CommonTabLayout
                 android:id="@+id/tab_layout"
@@ -49,7 +45,8 @@
                 tl:tl_underline_color="#DDDDDD"
                 tl:tl_underline_height="1dp"/>
 
-        </com.xiaoxin.xing.wqq.ui.widget.CustomRelativeLayout>
+        </com.xiaoxin.xing.wqq.Widget.CustomRelativeLayout>
 
-    </com.xiaoxin.xing.wqq.ui.widget.DragLayout>
+    </com.xiaoxin.xing.wqq.Widget.DragLayout>
+
 </RelativeLayout>

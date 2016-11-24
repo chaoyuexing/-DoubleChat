@@ -4,66 +4,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="70dp"
-    android:background="@drawable/sidebar_bg"
-    >
+    android:background="@drawable/sidebar_bg">
+
     <LinearLayout
         android:id="@+id/ll1"
         android:paddingLeft="30dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-     <!--头像，昵称信息-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        >
-        <com.xiaoxin.xing.wqq.ui.widget.RoundAngleImageView
-            android:id="@+id/iv_bottom"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/icon_logo"
-            app:roundWidth="25dp"
-            app:roundHeight="25dp"/>
+         <!--头像，昵称信息-->
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_gravity="center_vertical"
-            android:orientation="vertical">
-            <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/iv_bottom"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/icon_logo"/>
+                <!--app:roundWidth="25dp"-->
+                <!--app:roundHeight="25dp"/>-->
+
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-               >
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:text="名字:xiaoxin"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                    <ImageButton
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="100dp"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@drawable/qrcode_selector"/>
+                </RelativeLayout>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="15dp"
-                    android:text="名字:xiaoxin"
+                    android:text="QQ:1126339699"
                     android:textColor="@android:color/black"
-                    android:textSize="15sp" />
-                <ImageButton
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="100dp"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:background="@drawable/qrcode_selector"/>
-            </RelativeLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="15dp"
-                android:text="QQ:1126339699"
-                android:textColor="@android:color/black"
-                android:textSize="13sp" />
+                    android:textSize="13sp" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -102,4 +104,5 @@
         android:divider="@null"
         android:scrollbars="none"
         android:textColor="#ffffff" />
+
 </RelativeLayout>

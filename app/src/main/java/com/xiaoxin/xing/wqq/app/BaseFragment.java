@@ -1,4 +1,4 @@
-package com.xiaoxin.xing.wqq.ui.frament;
+package com.xiaoxin.xing.wqq.app;
 
 import android.content.Intent;
 import android.os.Bundle;

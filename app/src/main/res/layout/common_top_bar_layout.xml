@@ -14,16 +14,16 @@
         android:id="@+id/rl_title"
         android:background="@android:color/holo_orange_light"
         >
-        <com.xiaoxin.xing.wqq.ui.widget.RoundAngleImageView
+        <ImageView
             android:id="@+id/iv_icon"
             android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:scaleType="fitXY"
-            android:src="@drawable/icon_logo"
-            app:roundWidth="17.5dp"
-            app:roundHeight="17.5dp"/>
+            android:src="@drawable/icon_logo"/>
+            <!--app:roundWidth="17.5dp"-->
+            <!--app:roundHeight="17.5dp"/>-->
         <!--<TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,3 +54,7 @@
             android:src="@drawable/main_activtiy_add_normal" />
     </RelativeLayout>
 </ScrollView>
+
+
+
+

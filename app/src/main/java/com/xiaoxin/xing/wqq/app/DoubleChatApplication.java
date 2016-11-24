@@ -18,4 +18,8 @@ public class DoubleChatApplication extends Application{
         context = this;
         mainHandler = new Handler();//在主线程创建的handler，就是主线程的handler
     }
+
+    public static Context getContext() {
+        return context;
+    }
 }

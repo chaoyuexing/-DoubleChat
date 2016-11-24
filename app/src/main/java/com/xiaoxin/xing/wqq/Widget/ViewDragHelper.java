@@ -15,7 +15,7 @@
  */
 
 
-package com.xiaoxin.xing.wqq.ui.widget;
+package com.xiaoxin.xing.wqq.Widget;
 
 import android.content.Context;
 import android.support.v4.view.MotionEventCompat;
