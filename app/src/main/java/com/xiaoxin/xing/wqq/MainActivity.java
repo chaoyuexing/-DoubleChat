@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.flyco.tablayout.CommonTabLayout;
+import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.flyco.tablayout.utils.UnreadMsgUtils;
@@ -27,6 +28,7 @@ import com.xiaoxin.xing.wqq.ui.frament.MessageFrament;
 import com.xiaoxin.xing.wqq.ui.frament.ZbFragment;
 import com.xiaoxin.xing.wqq.ui.widget.CustomRelativeLayout;
 import com.xiaoxin.xing.wqq.ui.widget.DragLayout;
+import com.xiaoxin.xing.wqq.ui.widget.MorePopWindow;
 import com.xiaoxin.xing.wqq.util.ItemDataUtils;
 
 import java.util.ArrayList;
@@ -35,8 +37,12 @@ import java.util.Random;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener{
     private static final String TAG_CONTENT = "TAG_CONTENT";
+    @Bind(R.id.tl_title)
+    SegmentTabLayout mTopTitle; //头部按钮
+    @Bind(R.id.seal_more)
+    ImageView mSealMore; //添加
     private DragLayout dl;
     private ListView lv;
     private ImageView ivIcon, ivBottom;
@@ -44,7 +50,7 @@ public class MainActivity extends BaseActivity {
     private CustomRelativeLayout mCll;
     @Bind(R.id.tab_layout)
     CommonTabLayout tabLayout;
-
+    private String[] mTopTitles = {"消息", "电话"};
     private String[] mTitles = {"首页", "消息", "联系人", "更多"};
     private int[] mIconUnselectIds = {
             R.mipmap.tab_home_unselect, R.mipmap.tab_speech_unselect,
@@ -58,6 +64,7 @@ public class MainActivity extends BaseActivity {
     private MessageFrament mMessageFrament;
     private ContactFragment mContactFragment;
     private ZbFragment mZbFragment;
+    private View mDecorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +74,7 @@ public class MainActivity extends BaseActivity {
         //setStatusBar();
         initDragLayout();
         initView();
+        initData();
         initTab();
         //initFragment1();
         initFragment(savedInstanceState);
@@ -88,6 +96,12 @@ public class MainActivity extends BaseActivity {
         if (rtv_2_3 != null) {
             rtv_2_3.setBackgroundColor(Color.parseColor("#6D8FB0"));
         }
+        mDecorView = getWindow().getDecorView();
+        mTopTitle.setTabData(mTopTitles);
+    }
+
+    private void initData() {
+        mSealMore.setOnClickListener(this);
     }
 
     /**
@@ -107,7 +121,8 @@ public class MainActivity extends BaseActivity {
             mHomeFragment = new HomeFragment();
             mMessageFrament = new MessageFrament();
             mContactFragment = new ContactFragment();
-            mZbFragment = new ZbFragment();;
+            mZbFragment = new ZbFragment();
+            ;
             transaction.add(R.id.fl, mHomeFragment, "mHomeFragment");
             transaction.add(R.id.fl, mMessageFrament, "mMessageFrament");
             transaction.add(R.id.fl, mContactFragment, "mContactFragment");
@@ -137,6 +152,7 @@ public class MainActivity extends BaseActivity {
             public void onTabSelect(int position) {
                 SwitchTo(position);
             }
+
             @Override
             public void onTabReselect(int position) {
                 tabLayout.showMsg(position, mRandom.nextInt(100) + 1);
@@ -203,12 +219,13 @@ public class MainActivity extends BaseActivity {
             //界面打开的时候
             @Override
             public void onOpen() {
-                Log.e("ss",dl.getState()+"sssss");
+                Log.e("ss", dl.getState() + "sssss");
             }
+
             //界面关闭的时候
             @Override
             public void onClose() {
-                Log.e("ss",dl.getState()+"sssss");
+                Log.e("ss", dl.getState() + "sssss");
             }
 
             //界面滑动的时候
@@ -221,9 +238,9 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        if(dl.getState()) {
+        if (dl.getState()) {
             dl.close();  //关闭
-        }else {
+        } else {
             super.onBackPressed();
         }
     }
@@ -246,25 +263,25 @@ public class MainActivity extends BaseActivity {
         //通过tag找到fragment
         //ContentFragment fragment = (ContentFragment) fm.findFragmentByTag(TAG_CONTENT);
     }
-    
+
     private void initView() {
         mCll = (CustomRelativeLayout) findViewById(R.id.cll);
         ivIcon = (ImageView) findViewById(R.id.iv_icon);
         ivBottom = (ImageView) findViewById(R.id.iv_bottom);
 
         lv = (ListView) findViewById(R.id.lv);
-        lv.setAdapter(quickAdapter=new QuickAdapter<ItemBean>(this,R.layout.item_left_layout, ItemDataUtils.getItemBeans()) {
+        lv.setAdapter(quickAdapter = new QuickAdapter<ItemBean>(this, R.layout.item_left_layout, ItemDataUtils.getItemBeans()) {
             @Override
             protected void convert(BaseAdapterHelper helper, ItemBean item) {
-                helper.setImageResource(R.id.item_img,item.getImg())
-                        .setText(R.id.item_tv,item.getTitle());
+                helper.setImageResource(R.id.item_img, item.getImg())
+                        .setText(R.id.item_tv, item.getTitle());
             }
         });
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1,
                                     int position, long arg3) {
-                Toast.makeText(MainActivity.this,"Click Item "+position,Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Click Item " + position, Toast.LENGTH_SHORT).show();
             }
         });
         ivIcon.setOnClickListener(new View.OnClickListener() {
@@ -275,4 +292,15 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.seal_more:
+                MorePopWindow morePopWindow = new MorePopWindow(MainActivity.this);
+                morePopWindow.showPopupWindow(mSealMore);
+                break;
+
+        }
+    }
 }

@@ -1,27 +1,56 @@
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="49dp"
-    android:id="@+id/rl_title"
-    android:background="@android:color/holo_orange_light"
-    >
-    <com.xiaoxin.xing.wqq.ui.widget.RoundAngleImageView
-        android:id="@+id/iv_icon"
-        android:layout_marginLeft="10dp"
-        android:layout_centerVertical="true"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/icon_logo"
-        app:roundWidth="17.5dp"
-        app:roundHeight="17.5dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="仿QQ6.0侧滑界面"
-        android:layout_centerInParent="true"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        />
-</RelativeLayout>
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:background="#eeeeee"
+    android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="49dp"
+        android:id="@+id/rl_title"
+        android:background="@android:color/holo_orange_light"
+        >
+        <com.xiaoxin.xing.wqq.ui.widget.RoundAngleImageView
+            android:id="@+id/iv_icon"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_logo"
+            app:roundWidth="17.5dp"
+            app:roundHeight="17.5dp"/>
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="仿QQ6.0侧滑界面"
+            android:layout_centerInParent="true"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            />-->
+
+        <com.flyco.tablayout.SegmentTabLayout
+            android:id="@+id/tl_title"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_centerInParent="true"
+            tl:tl_bar_color="#ffffff"
+            tl:tl_indicator_color="#2C97DE"
+            tl:tl_indicator_corner_radius="8dp"
+            tl:tl_tab_padding="20dp"/>
+
+        <ImageView
+            android:id="@+id/seal_more"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:src="@drawable/main_activtiy_add_normal" />
+    </RelativeLayout>
+</ScrollView>

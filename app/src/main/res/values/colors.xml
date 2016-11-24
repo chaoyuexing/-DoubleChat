@@ -10,4 +10,6 @@
     <color name="primary_text_white">#deffffff</color>
     <!--87%white-->
     <color name="progress_bar_unfinished">#D4D4D4</color>
+    <color name="white">#FFFFFF</color>
+    <color name="text_color">#353535</color>
 </resources>
