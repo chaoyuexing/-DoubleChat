@@ -3,7 +3,6 @@ package com.xiaoxin.xing.wqq;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +18,7 @@ import com.flyco.tablayout.widget.MsgView;
 import com.joanzapata.android.BaseAdapterHelper;
 import com.joanzapata.android.QuickAdapter;
 import com.nineoldandroids.view.ViewHelper;
+import com.xiaoxin.xing.wqq.app.BaseActivity;
 import com.xiaoxin.xing.wqq.entity.ItemBean;
 import com.xiaoxin.xing.wqq.entity.TabEntity;
 import com.xiaoxin.xing.wqq.ui.frament.ContactFragment;
@@ -35,7 +35,7 @@ import java.util.Random;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private static final String TAG_CONTENT = "TAG_CONTENT";
     private DragLayout dl;
     private ListView lv;

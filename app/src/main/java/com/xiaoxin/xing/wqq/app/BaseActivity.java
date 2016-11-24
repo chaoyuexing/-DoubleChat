@@ -1,4 +1,4 @@
-package com.xiaoxin.xing.wqq.ui.activity;
+package com.xiaoxin.xing.wqq.app;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -11,7 +11,13 @@ import com.xiaoxin.xing.wqq.R;
 
 import java.lang.reflect.Field;
 
+/**
+ * Created time 2016/11/24.
+ * Created name xing.
+ */
+
 public class BaseActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,5 +65,6 @@ public class BaseActivity extends AppCompatActivity {
         }
         return 0;
     }
+
 
 }
