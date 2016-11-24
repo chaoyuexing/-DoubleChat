@@ -42,6 +42,13 @@ public class DragLayout extends FrameLayout {
     private com.xiaoxin.xing.wqq.ui.widget.CustomRelativeLayout vgMain;
     //页面状态 默认为关闭
     private Status status = Status.CLOSE;
+    /** 当前的状态*/
+    private boolean state = false;
+
+    /**获取当前界面的状态*/
+    public boolean getState() {
+        return state;
+    }
 
     /**
      * 实现子View的拖拽滑动，实现Callback当中相关的方法
@@ -167,12 +174,13 @@ public class DragLayout extends FrameLayout {
      * 滑动相关回调接口
      */
     public interface DragListener {
-        //界面打开
-        public void onOpen();
-        //界面关闭
-        public void onClose();
-        //界面滑动过程中
-        public void onDrag(float percent);
+        /**界面打开*/
+        void onOpen();
+        /**界面关闭*/
+        void onClose();
+        /**界面滑动过程中*/
+        void onDrag(float percent);
+
     }
     public void setDragListener(DragListener dragListener) {
         this.dragListener = dragListener;
@@ -325,6 +333,7 @@ public class DragLayout extends FrameLayout {
 
     public void open() {
         open(true);
+        state = true;
     }
 
     public void open(boolean animate) {
@@ -341,6 +350,7 @@ public class DragLayout extends FrameLayout {
 
     public void close() {
         close(true);
+        state = false;
     }
 
     public void close(boolean animate) {

@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:background="#ff0"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/listview"
+        android:cacheColorHint="#00000000"
+        android:divider="#d9d9d9"
+        android:dividerHeight="0.5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+
+    <com.xiaoxin.xing.wqq.ui.widget.QuickIndexBar
+        android:id="@+id/quickIndexBar"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        />
+    <!--android:background="#B51421" -->
+
 
     <TextView
-        android:id="@+id/tv_home"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Contacts"/>
-
-
-</LinearLayout>
+        android:id="@+id/currentWord"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="50sp"
+        android:textStyle="bold"/>
+</RelativeLayout>

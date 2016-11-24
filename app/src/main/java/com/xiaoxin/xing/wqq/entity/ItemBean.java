@@ -1,4 +1,4 @@
-package com.chinaztt.entity;
+package com.xiaoxin.xing.wqq.entity;
 
 
 public class ItemBean {

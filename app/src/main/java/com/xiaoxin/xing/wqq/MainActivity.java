@@ -4,13 +4,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.chinaztt.entity.ItemBean;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
@@ -19,6 +19,7 @@ import com.flyco.tablayout.widget.MsgView;
 import com.joanzapata.android.BaseAdapterHelper;
 import com.joanzapata.android.QuickAdapter;
 import com.nineoldandroids.view.ViewHelper;
+import com.xiaoxin.xing.wqq.entity.ItemBean;
 import com.xiaoxin.xing.wqq.entity.TabEntity;
 import com.xiaoxin.xing.wqq.ui.frament.ContactFragment;
 import com.xiaoxin.xing.wqq.ui.frament.HomeFragment;
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         initTab();
         //initFragment1();
         initFragment(savedInstanceState);
+        tabLayout.setBackgroundColor(Color.WHITE);
         tabLayout.showMsg(0, 55);
         tabLayout.setMsgMargin(0, -5, 5);
         tabLayout.showMsg(1, 100);
@@ -134,12 +136,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelect(int position) {
                 SwitchTo(position);
-                //Toast.makeText(MainActivity.this,"sss",Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onTabReselect(int position) {
                 tabLayout.showMsg(position, mRandom.nextInt(100) + 1);
-                Toast.makeText(MainActivity.this,"s3232ss",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -157,7 +157,6 @@ public class MainActivity extends AppCompatActivity {
                 transaction.hide(mZbFragment);
                 transaction.show(mHomeFragment);
                 transaction.commitAllowingStateLoss();
-                Toast.makeText(MainActivity.this,"11",Toast.LENGTH_SHORT).show();
                 break;
             //消息
             case 1:
@@ -166,7 +165,6 @@ public class MainActivity extends AppCompatActivity {
                 transaction.hide(mZbFragment);
                 transaction.hide(mHomeFragment);
                 transaction.commitAllowingStateLoss();
-                Toast.makeText(MainActivity.this,"22",Toast.LENGTH_SHORT).show();
                 break;
             //联系人
             case 2:
@@ -175,7 +173,6 @@ public class MainActivity extends AppCompatActivity {
                 transaction.hide(mZbFragment);
                 transaction.hide(mHomeFragment);
                 transaction.commitAllowingStateLoss();
-                Toast.makeText(MainActivity.this,"33",Toast.LENGTH_SHORT).show();
                 break;
             //更多
             case 3:
@@ -184,7 +181,6 @@ public class MainActivity extends AppCompatActivity {
                 transaction.show(mZbFragment);
                 transaction.hide(mHomeFragment);
                 transaction.commitAllowingStateLoss();
-                Toast.makeText(MainActivity.this,"44",Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
@@ -207,11 +203,12 @@ public class MainActivity extends AppCompatActivity {
             //界面打开的时候
             @Override
             public void onOpen() {
-
+                Log.e("ss",dl.getState()+"sssss");
             }
             //界面关闭的时候
             @Override
             public void onClose() {
+                Log.e("ss",dl.getState()+"sssss");
             }
 
             //界面滑动的时候
@@ -220,6 +217,15 @@ public class MainActivity extends AppCompatActivity {
                 ViewHelper.setAlpha(ivIcon, 1 - percent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(dl.getState()) {
+            dl.close();  //关闭
+        }else {
+            super.onBackPressed();
+        }
     }
 
     //初始化Fragment
