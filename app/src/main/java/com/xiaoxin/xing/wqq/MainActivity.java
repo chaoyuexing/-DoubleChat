@@ -23,7 +23,7 @@ import com.xiaoxin.xing.wqq.app.BaseActivity;
 import com.xiaoxin.xing.wqq.entity.ItemBean;
 import com.xiaoxin.xing.wqq.entity.TabEntity;
 
-import com.xiaoxin.xing.wqq.ui.widget.MorePopWindow;
+import com.xiaoxin.xing.wqq.Widget.MorePopWindow;
 import com.xiaoxin.xing.wqq.MVP.home.Fragment.ContactFragment;
 import com.xiaoxin.xing.wqq.MVP.home.Fragment.HomeFragment;
 import com.xiaoxin.xing.wqq.MVP.home.Fragment.MessageFrament;

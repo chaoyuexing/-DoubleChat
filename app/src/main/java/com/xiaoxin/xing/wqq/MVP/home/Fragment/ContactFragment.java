@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 /**
  * @author xiaoxin
  * @date 2016/11/10
- * @describe ：
+ * @describe ：联系人列表
  * 修改内容
  */
 public class ContactFragment extends BaseFragment {

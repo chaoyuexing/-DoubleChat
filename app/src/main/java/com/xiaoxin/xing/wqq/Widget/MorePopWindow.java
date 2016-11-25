@@ -1,4 +1,4 @@
-package com.xiaoxin.xing.wqq.ui.widget;
+package com.xiaoxin.xing.wqq.Widget;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

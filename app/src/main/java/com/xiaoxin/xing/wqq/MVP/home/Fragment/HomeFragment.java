@@ -8,7 +8,7 @@ import butterknife.ButterKnife;
 /**
  * @author xiaoxin
  * @date 2016/11/10
- * @describe ：
+ * @describe ：主页
  * 修改内容
  */
 public class HomeFragment extends BaseFragment {

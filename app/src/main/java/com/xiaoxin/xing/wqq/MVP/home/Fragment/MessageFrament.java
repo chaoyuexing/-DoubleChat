@@ -6,7 +6,7 @@ import com.xiaoxin.xing.wqq.app.BaseFragment;
 /**
  * @author xiaoxin
  * @date 2016/11/10
- * @describe ：
+ * @describe ：消息
  * 修改内容
  */
 public class MessageFrament extends BaseFragment {
