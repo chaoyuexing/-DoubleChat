@@ -1,4 +1,4 @@
-package com.xiaoxin.xing.wqq.entity;
+package com.xiaoxin.xing.wqq.MVP.home.model;
 
 import com.xiaoxin.xing.wqq.util.PinYinUtil;
 

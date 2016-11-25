@@ -1,4 +1,4 @@
-package com.xiaoxin.xing.wqq.entity;
+package com.xiaoxin.xing.wqq.MVP.home.model;
 
 
 public class ItemBean {

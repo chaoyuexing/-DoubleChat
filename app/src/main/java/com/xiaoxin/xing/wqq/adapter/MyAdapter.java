@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.xiaoxin.xing.wqq.R;
-import com.xiaoxin.xing.wqq.entity.Friend;
+import com.xiaoxin.xing.wqq.MVP.home.model.Friend;
 
 import java.util.ArrayList;
 

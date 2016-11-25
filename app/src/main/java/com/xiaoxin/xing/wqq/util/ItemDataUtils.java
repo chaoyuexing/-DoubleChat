@@ -1,6 +1,6 @@
 package com.xiaoxin.xing.wqq.util;
 import com.xiaoxin.xing.wqq.R;
-import com.xiaoxin.xing.wqq.entity.ItemBean;
+import com.xiaoxin.xing.wqq.MVP.home.model.ItemBean;
 
 import java.util.ArrayList;
 import java.util.List;

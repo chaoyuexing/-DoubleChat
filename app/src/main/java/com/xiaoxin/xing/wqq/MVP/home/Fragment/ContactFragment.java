@@ -14,7 +14,7 @@ import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.xiaoxin.xing.wqq.R;
 import com.xiaoxin.xing.wqq.adapter.MyAdapter;
 import com.xiaoxin.xing.wqq.app.BaseFragment;
-import com.xiaoxin.xing.wqq.entity.Friend;
+import com.xiaoxin.xing.wqq.MVP.home.model.Friend;
 import com.xiaoxin.xing.wqq.Widget.QuickIndexBar;
 
 import java.util.ArrayList;

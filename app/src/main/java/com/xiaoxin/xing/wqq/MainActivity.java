@@ -20,8 +20,8 @@ import com.joanzapata.android.BaseAdapterHelper;
 import com.joanzapata.android.QuickAdapter;
 import com.nineoldandroids.view.ViewHelper;
 import com.xiaoxin.xing.wqq.app.BaseActivity;
-import com.xiaoxin.xing.wqq.entity.ItemBean;
-import com.xiaoxin.xing.wqq.entity.TabEntity;
+import com.xiaoxin.xing.wqq.MVP.home.model.ItemBean;
+import com.xiaoxin.xing.wqq.MVP.home.model.TabEntity;
 
 import com.xiaoxin.xing.wqq.Widget.MorePopWindow;
 import com.xiaoxin.xing.wqq.MVP.home.Fragment.ContactFragment;
